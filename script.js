@@ -16,6 +16,9 @@ function calculator () {
         return multiplyResult;
     } else {
         divideResult = firstNum / secondNum;
+        if (secondNum === 0) {
+            return "That's a no from me, dawg.";
+        }
         return divideResult;
     }
 
@@ -40,6 +43,8 @@ function calculator () {
     const btnEquals = document.querySelector(".equals");
     const btnClear = document.querySelector(".clear");
     const btnDecimal = document.querySelector(".decimal");
+    const btnNegative = document.querySelector(".negative");
+    const btnPercent = document.querySelector(".percent");
 
     let displayNum = document.getElementById("output").value;
 
@@ -197,6 +202,7 @@ function calculator () {
         result = operate(firstNum, operator, secondNum);
         console.log("equals:", result);
         document.getElementById("output").value = result;
+        displayNum = result;
         decimalEnable();
     });
 
@@ -208,6 +214,18 @@ function calculator () {
         document.getElementById("output").value = displayNum;
         decimalEnable();
     });
+
+    btnNegative.addEventListener("click", () => {
+        negativeNum = displayNum * -1;
+        document.getElementById("output").value = negativeNum;
+        displayNum = negativeNum;
+    });
+
+    btnPercent.addEventListener("click", () => {
+        percentNum = displayNum / 100;
+        document.getElementById("output").value = percentNum;
+        displayNum = percentNum;
+    })
 
 
     };
