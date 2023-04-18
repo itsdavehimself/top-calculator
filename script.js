@@ -46,62 +46,63 @@ function calculator () {
     const btnNegative = document.querySelector(".negative");
     const btnPercent = document.querySelector(".percent");
 
-    let displayNum = document.getElementById("output").value;
+    let displayNum = document.getElementById("output").textContent;
+    displayNum = "";
 
 
     btnZero.addEventListener("click", () => {
         displayNum = displayNum + btnZero.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnOne.addEventListener("click", () => {
         displayNum = displayNum + btnOne.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnTwo.addEventListener("click", () => {
         displayNum = displayNum + btnTwo.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnThree.addEventListener("click", () => {
         displayNum = displayNum + btnThree.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnFour.addEventListener("click", () => {
         displayNum = displayNum + btnFour.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnFive.addEventListener("click", () => {
         displayNum = displayNum + btnFive.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnSix.addEventListener("click", () => {
         displayNum = displayNum + btnSix.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnSeven.addEventListener("click", () => {
         displayNum = displayNum + btnSeven.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnEight.addEventListener("click", () => {
         displayNum = displayNum + btnEight.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnNine.addEventListener("click", () => {
         displayNum = displayNum + btnNine.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
     });
 
     btnDecimal.addEventListener("click", () => {
         displayNum = displayNum + btnDecimal.value;
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
         btnDecimal.disabled = true;
     });
 
@@ -114,10 +115,10 @@ function calculator () {
             secondNum = parseFloat(displayNum);
             result = operate(firstNum, operator, secondNum);
             firstNum = result;
-            document.getElementById("output").value = result;
+            document.getElementById("output").textContent = result;
             displayNum = "";
             operator = "+";
-            decimalEnable();
+
         } else {
             firstNum = parseFloat(displayNum);
             displayNum = "";
@@ -131,7 +132,7 @@ function calculator () {
             secondNum = parseFloat(displayNum);
             result = operate(firstNum, operator, secondNum);
             firstNum = result;
-            document.getElementById("output").value = result;
+            document.getElementById("output").textContent = result;
             displayNum = "";
             operator = "-";
             decimalEnable();
@@ -148,7 +149,7 @@ function calculator () {
             secondNum = parseFloat(displayNum);
             result = operate(firstNum, operator, secondNum);
             firstNum = result;
-            document.getElementById("output").value = result;
+            document.getElementById("output").textContent = result;
             displayNum = "";
             operator = "/";
             decimalEnable();
@@ -165,7 +166,7 @@ function calculator () {
             secondNum = parseFloat(displayNum);
             result = operate(firstNum, operator, secondNum);
             firstNum = result;
-            document.getElementById("output").value = result;
+            document.getElementById("output").textContent = result;
             displayNum = "";
             operator = "*";
             decimalEnable();
@@ -180,7 +181,7 @@ function calculator () {
     btnEquals.addEventListener("click", () => {
         secondNum = parseFloat(displayNum);
         result = operate(firstNum, operator, secondNum);
-        document.getElementById("output").value = result;
+        document.getElementById("output").textContent = result;
         displayNum = result;
         decimalEnable();
     });
@@ -190,19 +191,19 @@ function calculator () {
         firstNum = 0;
         secondNum = 0;
         displayNum = "";
-        document.getElementById("output").value = displayNum;
+        document.getElementById("output").textContent = displayNum;
         decimalEnable();
     });
 
     btnNegative.addEventListener("click", () => {
         negativeNum = displayNum * -1;
-        document.getElementById("output").value = negativeNum;
+        document.getElementById("output").textContent = negativeNum;
         displayNum = negativeNum;
     });
 
     btnPercent.addEventListener("click", () => {
         percentNum = displayNum / 100;
-        document.getElementById("output").value = percentNum;
+        document.getElementById("output").textContent = percentNum;
         displayNum = percentNum;
     })
 
