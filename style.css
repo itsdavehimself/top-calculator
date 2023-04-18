@@ -21,3 +21,13 @@ body {
     display: flex;
     justify-content: space-around;
 }
+
+.output {
+    width: 200px;
+    height: 50px;
+}
+
+button {
+    display: flex;
+    width: 50px;
+}
