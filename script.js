@@ -112,20 +112,15 @@ function calculator () {
     btnAdd.addEventListener("click", () => {
         if (firstNum) {
             secondNum = parseFloat(displayNum);
-            console.log("secondNum:", secondNum);
             result = operate(firstNum, operator, secondNum);
-            console.log("result:", result);
             firstNum = result;
-            console.log("firstNum now:", firstNum);
             document.getElementById("output").value = result;
             displayNum = "";
-            console.log("displayNum: ", displayNum);
             operator = "+";
             decimalEnable();
         } else {
             firstNum = parseFloat(displayNum);
             displayNum = "";
-            console.log("firstNum:", firstNum);
             operator = "+";
             decimalEnable();
         }
@@ -134,20 +129,15 @@ function calculator () {
     btnSubtract.addEventListener("click", () => {
         if (firstNum) {
             secondNum = parseFloat(displayNum);
-            console.log("secondNum:", secondNum);
             result = operate(firstNum, operator, secondNum);
-            console.log("result:", result);
             firstNum = result;
-            console.log("firstNum now:", firstNum);
             document.getElementById("output").value = result;
             displayNum = "";
-            console.log("displayNum: ", displayNum);
             operator = "-";
             decimalEnable();
         } else {
             firstNum = parseFloat(displayNum);
             displayNum = "";
-            console.log("firstNum:", firstNum);
             operator = "-";
             decimalEnable();
         }
@@ -156,20 +146,15 @@ function calculator () {
     btnDivide.addEventListener("click", () => {
         if (firstNum) {
             secondNum = parseFloat(displayNum);
-            console.log("secondNum:", secondNum);
             result = operate(firstNum, operator, secondNum);
-            console.log("result:", result);
             firstNum = result;
-            console.log("firstNum now:", firstNum);
             document.getElementById("output").value = result;
             displayNum = "";
-            console.log("displayNum: ", displayNum);
             operator = "/";
             decimalEnable();
         } else {
             firstNum = parseFloat(displayNum);
             displayNum = "";
-            console.log("firstNum:", firstNum);
             operator = "/";
             decimalEnable();
         }
@@ -178,20 +163,15 @@ function calculator () {
     btnMultiply.addEventListener("click", () => {
         if (firstNum) {
             secondNum = parseFloat(displayNum);
-            console.log("secondNum:", secondNum);
             result = operate(firstNum, operator, secondNum);
-            console.log("result:", result);
             firstNum = result;
-            console.log("firstNum now:", firstNum);
             document.getElementById("output").value = result;
             displayNum = "";
-            console.log("displayNum: ", displayNum);
             operator = "*";
             decimalEnable();
         } else {
             firstNum = parseFloat(displayNum);
             displayNum = "";
-            console.log("firstNum:", firstNum);
             operator = "*";
             decimalEnable();
         }
@@ -200,7 +180,6 @@ function calculator () {
     btnEquals.addEventListener("click", () => {
         secondNum = parseFloat(displayNum);
         result = operate(firstNum, operator, secondNum);
-        console.log("equals:", result);
         document.getElementById("output").value = result;
         displayNum = result;
         decimalEnable();
