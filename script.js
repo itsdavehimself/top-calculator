@@ -7,19 +7,23 @@ function calculator () {
     function operate(firstNum, operator, secondNum) {
     if (operator === "+") {
         addResult = firstNum + secondNum;
-        return addResult;
+        newAddResult = Number(addResult.toFixed(9));
+        return newAddResult;
     } else if (operator === "-") {
         subtractResult = firstNum - secondNum;
-        return subtractResult;
+        newSubResult = Number(subtractResult.toFixed(9));
+        return newSubResult;
     } else if (operator === "*") {
         multiplyResult = firstNum * secondNum;
-        return multiplyResult;
+        newMultResult = Number(multiplyResult.toFixed(9));
+        return newMultResult;
     } else {
         divideResult = firstNum / secondNum;
+        newDivResult = Number(divideResult.toFixed(9));
         if (secondNum === 0) {
             return "That's a no from me, dawg.";
         }
-        return divideResult;
+        return newDivResult;
     }
 
     }
@@ -45,8 +49,10 @@ function calculator () {
     const btnDecimal = document.querySelector(".decimal");
     const btnNegative = document.querySelector(".negative");
     const btnPercent = document.querySelector(".percent");
+    const allButtons = document.querySelectorAll("button")
 
-    let displayNum = document.getElementById("output").textContent;
+
+    let displayNum = document.getElementById("output").textContent = "0";
     displayNum = "";
 
 
@@ -111,7 +117,9 @@ function calculator () {
     }
 
     btnAdd.addEventListener("click", () => {
-        if (firstNum) {
+        if (displayNum === "") {
+            document.getElementById("output").textContent = result;
+        } else if (firstNum) {
             secondNum = parseFloat(displayNum);
             result = operate(firstNum, operator, secondNum);
             firstNum = result;
@@ -128,14 +136,16 @@ function calculator () {
     });
 
     btnSubtract.addEventListener("click", () => {
-        if (firstNum) {
+        if (displayNum === "") {
+            document.getElementById("output").textContent = result;
+        } else if (firstNum) {
             secondNum = parseFloat(displayNum);
             result = operate(firstNum, operator, secondNum);
             firstNum = result;
             document.getElementById("output").textContent = result;
             displayNum = "";
             operator = "-";
-            decimalEnable();
+
         } else {
             firstNum = parseFloat(displayNum);
             displayNum = "";
@@ -145,14 +155,16 @@ function calculator () {
     });
 
     btnDivide.addEventListener("click", () => {
-        if (firstNum) {
+        if (displayNum === "") {
+            document.getElementById("output").textContent = result;
+        } else if (firstNum) {
             secondNum = parseFloat(displayNum);
             result = operate(firstNum, operator, secondNum);
             firstNum = result;
             document.getElementById("output").textContent = result;
             displayNum = "";
             operator = "/";
-            decimalEnable();
+
         } else {
             firstNum = parseFloat(displayNum);
             displayNum = "";
@@ -162,14 +174,16 @@ function calculator () {
     });
 
     btnMultiply.addEventListener("click", () => {
-        if (firstNum) {
+        if (displayNum === "") {
+            document.getElementById("output").textContent = result;
+        } else if (firstNum) {
             secondNum = parseFloat(displayNum);
             result = operate(firstNum, operator, secondNum);
             firstNum = result;
             document.getElementById("output").textContent = result;
             displayNum = "";
             operator = "*";
-            decimalEnable();
+
         } else {
             firstNum = parseFloat(displayNum);
             displayNum = "";
@@ -184,15 +198,23 @@ function calculator () {
         document.getElementById("output").textContent = result;
         displayNum = result;
         decimalEnable();
+        allButtons.forEach(button => {
+            button.disabled = true;
+        });
+        btnClear.disabled = false;
+        btnPercent.disabled = false;
     });
 
 
     btnClear.addEventListener("click", () => {
         firstNum = 0;
         secondNum = 0;
-        displayNum = "";
+        displayNum = "0";
         document.getElementById("output").textContent = displayNum;
-        decimalEnable();
+        displayNum = "";
+        allButtons.forEach(button => {
+            button.disabled = false;
+        });
     });
 
     btnNegative.addEventListener("click", () => {
